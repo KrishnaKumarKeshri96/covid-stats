@@ -20,6 +20,8 @@ import { Footer } from "./components/footer";
 
 import { CountryTable } from "./components/world/CountryTable";
 
+import { DailyChart } from "./components/charts/DailyChart";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
@@ -115,6 +117,7 @@ function App() {
             />
           </div>
         </div>
+        <DailyChart data={dailyData} />
       </div>
       <Footer {...dashboardData} />
     </div>
