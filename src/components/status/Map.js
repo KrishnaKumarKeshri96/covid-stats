@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { scalePow } from "d3-scale";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
