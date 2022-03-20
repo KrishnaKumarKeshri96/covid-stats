@@ -18,6 +18,8 @@ import { Dashboard } from "./components/dashboard";
 
 import { Footer } from "./components/footer";
 
+import { CountryTable } from "./components/world/CountryTable";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
@@ -86,7 +88,9 @@ function App() {
     <div className="app-block">
       <div className="app-container">
         <div className="dashboard-container">
-          <div className="left-container"></div>
+          <div className="left-container">
+            <CountryTable data={Object.values(data)} />
+          </div>
           <div className="right-container">
             <NavBar handleClick={getData} />
             <Dashboard type={type} setType={setType} data={dashboardData} />
@@ -115,8 +119,6 @@ function App() {
       <Footer {...dashboardData} />
     </div>
   );
-
-  // return Object.keys(data).length ? <Map /> : <Loader />;
 }
 
 export default App;
