@@ -21,8 +21,9 @@ import { Footer } from "./components/footer";
 import { CountryTable } from "./components/world/CountryTable";
 
 import { DailyChart } from "./components/charts/DailyChart";
+import "./styles/App.scss";
 
-function App() {
+const App = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
   const [dailyData, setDailyData] = useState(null);
@@ -122,6 +123,6 @@ function App() {
       <Footer {...dashboardData} />
     </div>
   );
-}
+};
 
 export default App;

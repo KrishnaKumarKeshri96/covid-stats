@@ -1,0 +1,80 @@
+@import "./partials/mixins";
+@import "./loader";
+
+body {
+  margin: 0px;
+  background-color: $black;
+  color: $lightgray;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input,
+textarea,
+button,
+select,
+a,
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.app-block {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @include animate-fade-in(0.3s);
+
+  .app-container {
+    min-height: calc(100vh - 60px);
+    .dashboard-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      @media only screen and (max-width: 1279px) {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+      }
+    }
+
+    .left-container {
+      width: 96%;
+      margin: 10px 2%;
+      overflow: hidden;
+      .tables-wrapper {
+        width: 100%;
+        margin-top: 10px;
+        max-height: 900px;
+      }
+      .state-table-container {
+        transition: 0.3s transform ease-out;
+        &.hide {
+          transform: translateX(-100%) translateY(25px);
+        }
+        &.show {
+          transform: translateX(0%) translateY(25px);
+        }
+      }
+      .country-table-container {
+        transition: 0.3s transform ease-out;
+        &.hide {
+          transform: translateX(100%) translateY(-100%);
+        }
+        &.show {
+          transform: translateX(0%) translateY(-100%);
+        }
+      }
+    }
+
+    .right-container {
+      min-width: 50vw;
+      @media only screen and (max-width: 1279px) {
+        width: 100%;
+        padding-left: 2.7vw;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

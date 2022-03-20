@@ -1,0 +1,26 @@
+.screen-loader {
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  .loading-section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    .loading-text {
+      @include typography-intro-reduced();
+      color: $gray;
+      font-weight: bold;
+      width: 105px;
+    }
+
+    button {
+      @include standard-button();
+      margin-top: 15px;
+    }
+  }
+}
