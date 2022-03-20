@@ -81,23 +81,36 @@ function App() {
   });
 
   return (
-    // <NavBar handleClick={getData} />
-    <Dashboard data={dashboardData} />
-    // <Map
-    //   data={data}
-    //   type={type}
-    //   selectedCountry={selectedCountry}
-    //   setSelectedCountry={setSelectedCountry}
-    // />
-    // <header className="header-container">
-    //   <CountryStatus data={data} type={type} country={selectedCountry} />
-    //   <Header
-    //     lastUpdate={dashboardData.lastUpdate}
-    //     countries={Object.values(data)}
-    //     selectedCountry={selectedCountry}
-    //     setSelectedCountry={setSelectedCountry}
-    //   />
-    // </header>
+    <div className="app-block">
+      <div className="app-container">
+        <div className="dashboard-container">
+          <div className="left-container"></div>
+          <div className="right-container">
+            <NavBar handleClick={getData} />
+            <Dashboard type={type} setType={setType} data={dashboardData} />
+            <header className="header-container">
+              <CountryStatus
+                data={data}
+                type={type}
+                country={selectedCountry}
+              />
+              <Header
+                lastUpdate={dashboardData.lastUpdate}
+                countries={Object.values(data)}
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
+              />
+            </header>
+            <Map
+              data={data}
+              type={type}
+              selectedCountry={selectedCountry}
+              setSelectedCountry={setSelectedCountry}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 
   // return Object.keys(data).length ? <Map /> : <Loader />;
