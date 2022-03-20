@@ -90,12 +90,12 @@ const App = () => {
   return (
     <div className="app-block">
       <div className="app-container">
+        <NavBar handleClick={getData} />
         <div className="dashboard-container">
           <div className="left-container">
             <CountryTable data={Object.values(data)} />
           </div>
           <div className="right-container">
-            <NavBar handleClick={getData} />
             <Dashboard type={type} setType={setType} data={dashboardData} />
             <header className="header-container">
               <CountryStatus
