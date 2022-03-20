@@ -1,0 +1,41 @@
+.footer-container {
+  align-items: center;
+  height: 60px;
+  background-color: $fadedBlack;
+  color: $gray;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  @include typography-caption-super();
+
+  .source {
+    margin-left: 2.7vw;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: bold;
+
+    div {
+      margin: 3px 0;
+    }
+
+    a {
+      @include block-link();
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    .last-updated {
+      margin-left: 5px;
+    }
+  }
+  .copyright {
+    margin-right: 2.7vw;
+    font-weight: bold;
+
+    a {
+      @include block-link();
+      margin-right: 5px;
+    }
+  }
+}
