@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import { scalePow } from "d3-scale";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+
+import { colors } from "../../constants/dashboard";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -18,7 +21,7 @@ export const Map = (props) => {
   const colorScale = scalePow()
     .exponent(0.1)
     .domain([0, maxValue])
-    .range("red");
+    .range(colors[type].range);
 
   return (
     <ComposableMap
@@ -41,8 +44,8 @@ export const Map = (props) => {
               const selectedGeo =
                 selectedCountry.iso3 === geo.properties.ISO_A3;
 
-              const baseColor = "green";
-              const hoverColor = "yellow";
+              const baseColor = colors[type].default;
+              const hoverColor = colors[type].hover;
 
               return (
                 <Geography
