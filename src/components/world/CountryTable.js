@@ -122,7 +122,9 @@ export const CountryTable = ({ data }) => {
 
   return (
     <div className="tables-wrapper">
-      <div>
+      <div
+        className={`state-table-container ${selectedCountry ? "show" : "hide"}`}
+      >
         <CountrySummary
           goBack={resetSelectedCountry}
           data={stateData.countrySummary}
@@ -136,7 +138,11 @@ export const CountryTable = ({ data }) => {
           className="state-table"
         />
       </div>
-      <div>
+      <div
+        className={`country-table-container ${
+          selectedCountry ? "hide" : "show"
+        }`}
+      >
         <Table
           paginate
           columns={countryColumns}

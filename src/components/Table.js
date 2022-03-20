@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import LeftArrow from "../assets/leftArrow.svg";
@@ -232,7 +232,7 @@ class Table extends Component {
               <td colSpan={columns.length}>
                 <div>
                   <button onClick={this.handlePrevious} disabled={pageNo === 1}>
-                    <img src={LeftArrow} />
+                    <img src={LeftArrow} alt="Arrow" />
                   </button>
                   <span className="pagination_options">
                     {`${pageNo} / ${Math.ceil(
@@ -245,7 +245,7 @@ class Table extends Component {
                       pageNo === Math.ceil(sortedData.length / sizePerPage)
                     }
                   >
-                    <img src={LeftArrow} />
+                    <img src={LeftArrow} alt="Arrow" />
                   </button>
                 </div>
               </td>
