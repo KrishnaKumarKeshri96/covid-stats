@@ -16,6 +16,8 @@ import { CountryStatus } from "./components/header/CountryStatus";
 import { NavBar } from "./components/navbar";
 import { Dashboard } from "./components/dashboard";
 
+import { Footer } from "./components/footer";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
@@ -110,6 +112,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer {...dashboardData} />
     </div>
   );
 
