@@ -112,6 +112,7 @@ class Table extends Component {
           }
         }
       }
+      return null;
     });
 
     const slicedData = paginate
@@ -124,7 +125,7 @@ class Table extends Component {
       const emptyRows = Array.apply(
         null,
         Array(sizePerPage - slicedData.length)
-      ).map(function () {});
+      );
       tableData = [...slicedData, ...emptyRows];
     }
 
