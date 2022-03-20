@@ -8,12 +8,14 @@ import { Loader } from "./components/loader/index";
 
 import { Map } from "./components/status/Map";
 
+import { Error } from "./components/error/index";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
   const [dailyData, setDailyData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [error, setError] = useState(false);
   useEffect(() => {
     getData();
   }, []);
@@ -33,9 +35,11 @@ function App() {
       setLoading(false);
     } catch (error) {
       setLoading(false);
+      setError(true);
     }
   };
 
+  if (error) return <Error handleClick={getData} />;
   if (loading) return <Loader />;
 
   if (!worldData || !dashboardData || !dailyData) return null;
