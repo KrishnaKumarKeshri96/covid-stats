@@ -4,7 +4,7 @@ import { Loader } from "./components/loader/index";
 import { getBaseData } from "./api/getBaseData";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   console.log(data);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function App() {
       setData(data);
     });
   }, []);
-  return data.length ? <h1>Got Data</h1> : <Loader />;
+  return Object.keys(data).length ? <h1>Got Data</h1> : <Loader />;
 }
 
 export default App;
