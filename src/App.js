@@ -10,12 +10,18 @@ import { Map } from "./components/status/Map";
 
 import { Error } from "./components/error/index";
 
+import { Header } from "./components/header/index";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
   const [dailyData, setDailyData] = useState(null);
+
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [type, setType] = useState("confirmed");
+
   useEffect(() => {
     getData();
   }, []);
@@ -28,7 +34,10 @@ function App() {
         getWorldData(),
         getDailyData(),
       ]);
-
+      setSelectedCountry({
+        iso3: "IND",
+        name: "India",
+      });
       setWorldData(worldData);
       setDashboardData(dashboardData);
       setDailyData(dailyData);
@@ -67,7 +76,20 @@ function App() {
     }
   });
 
-  return <Map data={data} />;
+  return (
+    // <Map
+    //   data={data}
+    //   type={type}
+    //   selectedCountry={selectedCountry}
+    //   setSelectedCountry={setSelectedCountry}
+    // />
+    <Header
+      lastUpdate={dashboardData.lastUpdate}
+      countries={Object.values(data)}
+      selectedCountry={selectedCountry}
+      setSelectedCountry={setSelectedCountry}
+    />
+  );
 
   // return Object.keys(data).length ? <Map /> : <Loader />;
 }
