@@ -13,6 +13,8 @@ import { Error } from "./components/error/index";
 import { Header } from "./components/header/index";
 import { CountryStatus } from "./components/header/CountryStatus";
 
+import { NavBar } from "./components/navbar/index";
+
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
   const [worldData, setWorldData] = useState(null);
@@ -78,21 +80,22 @@ function App() {
   });
 
   return (
+    <NavBar handleClick={getData} />
     // <Map
     //   data={data}
     //   type={type}
     //   selectedCountry={selectedCountry}
     //   setSelectedCountry={setSelectedCountry}
     // />
-    <header className="header-container">
-      <CountryStatus data={data} type={type} country={selectedCountry} />
-      <Header
-        lastUpdate={dashboardData.lastUpdate}
-        countries={Object.values(data)}
-        selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
-      />
-    </header>
+    // <header className="header-container">
+    //   <CountryStatus data={data} type={type} country={selectedCountry} />
+    //   <Header
+    //     lastUpdate={dashboardData.lastUpdate}
+    //     countries={Object.values(data)}
+    //     selectedCountry={selectedCountry}
+    //     setSelectedCountry={setSelectedCountry}
+    //   />
+    // </header>
   );
 
   // return Object.keys(data).length ? <Map /> : <Loader />;
