@@ -6,9 +6,7 @@ import { colors } from "../../constants/dashboard";
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-export const Map = (props) => {
-  const { type, data, setSelectedCountry, selectedCountry } = props;
-
+export const Map = ({ type, data, setSelectedCountry, selectedCountry }) => {
   if (!data || data === {}) return null;
 
   const formattedData = Object.values(data);
