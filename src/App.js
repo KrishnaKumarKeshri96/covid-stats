@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Loader } from "./components/loader/index";
 import { getBaseData } from "./api/getBaseData";
 
+import { Map } from "./components/status/Map";
+
 function App() {
   const [data, setData] = useState({});
   console.log(data);
@@ -12,7 +14,7 @@ function App() {
       setData(data);
     });
   }, []);
-  return Object.keys(data).length ? <h1>Got Data</h1> : <Loader />;
+  return Object.keys(data).length ? <Map /> : <Loader />;
 }
 
 export default App;
