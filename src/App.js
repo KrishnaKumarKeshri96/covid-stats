@@ -11,6 +11,7 @@ import { Map } from "./components/status/Map";
 import { Error } from "./components/error/index";
 
 import { Header } from "./components/header/index";
+import { CountryStatus } from "./components/header/CountryStatus";
 
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
@@ -83,12 +84,15 @@ function App() {
     //   selectedCountry={selectedCountry}
     //   setSelectedCountry={setSelectedCountry}
     // />
-    <Header
-      lastUpdate={dashboardData.lastUpdate}
-      countries={Object.values(data)}
-      selectedCountry={selectedCountry}
-      setSelectedCountry={setSelectedCountry}
-    />
+    <header className="header-container">
+      <CountryStatus data={data} type={type} country={selectedCountry} />
+      <Header
+        lastUpdate={dashboardData.lastUpdate}
+        countries={Object.values(data)}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
+      />
+    </header>
   );
 
   // return Object.keys(data).length ? <Map /> : <Loader />;
