@@ -4,16 +4,17 @@ import { getBaseData } from "./api/getBaseData";
 import { getWorldData } from "./api/getWorldData";
 import { getDailyData } from "./api/getDailyData";
 
-import { Loader } from "./components/loader/index";
+import { Loader } from "./components/loader";
 
 import { Map } from "./components/status/Map";
 
-import { Error } from "./components/error/index";
+import { Error } from "./components/error";
 
-import { Header } from "./components/header/index";
+import { Header } from "./components/header";
 import { CountryStatus } from "./components/header/CountryStatus";
 
-import { NavBar } from "./components/navbar/index";
+import { NavBar } from "./components/navbar";
+import { Dashboard } from "./components/dashboard";
 
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
@@ -80,7 +81,8 @@ function App() {
   });
 
   return (
-    <NavBar handleClick={getData} />
+    // <NavBar handleClick={getData} />
+    <Dashboard data={dashboardData} />
     // <Map
     //   data={data}
     //   type={type}
